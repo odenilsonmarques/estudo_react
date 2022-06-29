@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React js</title>
+</head>
+<body>
+    <!--De inicio criou-se todo aqui dentro do index, e foi utilizado cdn. Em projeto reias é criado via npm ...-->
+
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script><!--está todo as configuracoes do bilioteca-->
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script><!--permite injetar os component na pagina-->
+
+    <div id="app"></div><!--nesa div vai ser injetado os components-->
+
+    
+
+
+
+    <script>
+        function MeuComponent01()
+        {
+            return (
+                React.createElement('div', {className: 'component-1'},
+                    React.createElement(MeuComponent02)
+                )
+            )
+        }
+
+        function MeuComponent02()
+        {
+            return (
+                React.createElement('div', {className: 'component-2'},
+                    React.createElement(MeuComponent03)
+                )
+            )
+        }
+
+        function MeuComponent03()
+        
+        {
+            return (
+                React.createElement('div', {className: 'component-3'},
+                    React.createElement(MeuComponent04)
+                )
+            )
+        }
+
+        function MeuComponent04()
+        {
+            return (
+                React.createElement('div', {className: 'component-4'},
+                    React.createElement('p', null, 'Component 4')
+                )
+            )
+        }
+
+
+
+        function MeuComponent()
+        {
+            return React.createElement('div', {id: 'componentes'}, 
+                React.createElement(MeuComponent01)
+            )
+        }
+        //chamando o metod reactDom que permite renderizar os elemento na pagina
+        ReactDOM.render(
+            //informando para o react que o nome passado no parametro é um component
+            React.createElement(MeuComponent),
+            document.getElementById('app')
+        )
+    </script>
+</body>
+</html>
